@@ -8,6 +8,9 @@ import {
 } from "react-native";
 
 export default function Login() {
+  const [Email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <ImageBackground
       source={{

@@ -1,5 +1,9 @@
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
+
+import Icon from "@expo/vector-icons/Ionicons";
+
+import { Button } from "../components/button";
 
 const ranger = 10;
 const MIN_COUNT_LIMIT = 10;
@@ -13,7 +17,6 @@ export default function Counter() {
 
   function onMinusPressed() {
     if (count - ranger < MIN_COUNT_LIMIT) return;
-
     setCount(count - ranger);
   }
 
@@ -21,11 +24,19 @@ export default function Counter() {
     <View style={styles.container}>
       <View style={styles.box}>
         <View>
-          <Button title={"+"} onPress={onAddPressed} />
+          <Button
+            title={"Ali Ali"}
+            onPress={onAddPressed}
+            btnIcon={<Icon size={40} name="heart" color={"purple"} />}
+          />
         </View>
         <Text style={styles.counterText}>{count}</Text>
         <View>
-          <Button title={"-"} onPress={onMinusPressed} />
+          <Button
+            title={"-"}
+            onPress={onMinusPressed}
+            btnIcon={<Icon size={40} name="home" color={"red"} />}
+          />
         </View>
       </View>
     </View>
