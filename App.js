@@ -1,5 +1,5 @@
-import Counter from "./src/screens/counter";
+import WhatsappStatus from "./src/screens/whatsappStatus/whatsappStatus";
 
 export default function App() {
-  return <Counter />;
+  return <WhatsappStatus />;
 }
