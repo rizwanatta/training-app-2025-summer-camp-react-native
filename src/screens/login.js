@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -10,6 +12,11 @@ import {
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { navigate } = useNavigation();
+
+  function onLoginPress() {
+    navigate("WhatsappStatus");
+  }
 
   return (
     <ImageBackground
@@ -32,7 +39,7 @@ export default function Login() {
       />
 
       <View style={styles.buttonCon}>
-        <Button title="Login" />
+        <Button title="Login" onPress={onLoginPress} />
       </View>
     </ImageBackground>
   );
