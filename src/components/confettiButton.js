@@ -12,10 +12,24 @@ export default function ConfettiButton() {
     }
   }
 
+  function onCheeTahStopPressed() {
+    if (confettiRef) {
+      confettiRef.current.stop();
+    }
+  }
+
+  function onCheeTahResumePressed() {
+    if (confettiRef) {
+      confettiRef.current.resume();
+    }
+  }
+
   return (
     <View ref={boxRef}>
       <Button onPress={onCheeTahPressed} title={"chee tanh"} />
       <ConfettiCannon ref={confettiRef} count={200} origin={{ x: -10, y: 0 }} />
+      <Button onPress={onCheeTahStopPressed} title={"chee tanh stop"} />
+      <Button onPress={onCheeTahResumePressed} title={"chee tanh resume"} />
     </View>
   );
 }
