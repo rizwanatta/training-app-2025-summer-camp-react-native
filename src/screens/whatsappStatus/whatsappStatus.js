@@ -7,6 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 import { styles } from "./styles";
 import { IconContainer } from "../../components/iconContainer";
+import ConfettiButton from "../../components/confettiButton";
 
 export default function WhatsappStatus() {
   const numericData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -55,6 +56,8 @@ export default function WhatsappStatus() {
           {/* list banani h is ma */}
         </View>
       </View>
+
+      <ConfettiButton />
     </View>
   );
 }
