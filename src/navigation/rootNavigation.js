@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Login from "../screens/login";
 import WhatsappStatus from "../screens/whatsappStatus/whatsappStatus";
+import Camera from "../screens/camera";
 
 const AppStack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function RootNavigation() {
           options={{ headerShown: true, title: "my app Status" }}
         />
         <AppStack.Screen name="Login" component={Login} />
+        <AppStack.Screen name="Camera" component={Camera} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

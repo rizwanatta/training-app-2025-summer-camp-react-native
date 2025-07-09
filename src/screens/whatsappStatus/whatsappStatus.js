@@ -1,9 +1,16 @@
-import { FlatList, Text, View } from "react-native";
+import {
+  FlatList,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Entypo from "@expo/vector-icons/Entypo";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
 import { IconContainer } from "../../components/iconContainer";
@@ -11,6 +18,8 @@ import ConfettiButton from "../../components/confettiButton";
 
 export default function WhatsappStatus({ route }) {
   const numericData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const { navigate } = useNavigation();
 
   const userSentEmail = route.params.email;
 
@@ -21,6 +30,10 @@ export default function WhatsappStatus({ route }) {
       </View>
     );
   };
+
+  function onCameraPress() {
+    navigate("Camera");
+  }
 
   return (
     <View>
@@ -40,9 +53,12 @@ export default function WhatsappStatus({ route }) {
           <View style={styles.statusListingHeading}>
             <Text style={styles.headerSubText}>Status</Text>
             <View style={styles.headerSubIconContainer}>
-              <IconContainer
-                icon={<Entypo name="camera" size={24} color="black" />}
-              />
+              <TouchableOpacity onPress={onCameraPress}>
+                <IconContainer
+                  icon={<Entypo name="camera" size={24} color="black" />}
+                />
+              </TouchableOpacity>
+
               <IconContainer
                 icon={<Ionicons name="pencil" size={24} color="black" />}
               />
