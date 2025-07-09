@@ -9,8 +9,15 @@ const AppStack = createNativeStackNavigator();
 export default function RootNavigation() {
   return (
     <NavigationContainer>
-      <AppStack.Navigator initialRouteName="Login">
-        <AppStack.Screen name="WhatsappStatus" component={WhatsappStatus} />
+      <AppStack.Navigator
+        initialRouteName="Login"
+        screenOptions={{ headerShown: false }}
+      >
+        <AppStack.Screen
+          name="WhatsappStatus"
+          component={WhatsappStatus}
+          options={{ headerShown: true, title: "my app Status" }}
+        />
         <AppStack.Screen name="Login" component={Login} />
       </AppStack.Navigator>
     </NavigationContainer>
