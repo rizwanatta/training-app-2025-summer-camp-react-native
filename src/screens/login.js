@@ -10,12 +10,12 @@ import {
 } from "react-native";
 
 export default function Login() {
-  const [Email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { navigate } = useNavigation();
 
   function onLoginPress() {
-    navigate("WhatsappStatus");
+    navigate("WhatsappStatus", { email: email });
   }
 
   return (
@@ -30,6 +30,7 @@ export default function Login() {
         placeholderTextColor={"white"}
         style={styles.input}
         placeholder="enter your email"
+        onChangeText={setEmail}
       />
       <TextInput
         style={styles.input}

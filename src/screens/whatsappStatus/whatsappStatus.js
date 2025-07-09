@@ -9,8 +9,10 @@ import { styles } from "./styles";
 import { IconContainer } from "../../components/iconContainer";
 import ConfettiButton from "../../components/confettiButton";
 
-export default function WhatsappStatus() {
+export default function WhatsappStatus({ route }) {
   const numericData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const userSentEmail = route.params.email;
 
   const _renderStatus = (item) => {
     return (
@@ -32,7 +34,7 @@ export default function WhatsappStatus() {
             />
           }
         />
-        <Text style={styles.headerText}>Updates</Text>
+        <Text style={styles.headerText}>Updates for {userSentEmail}</Text>
 
         <View style={styles.statusListing}>
           <View style={styles.statusListingHeading}>
