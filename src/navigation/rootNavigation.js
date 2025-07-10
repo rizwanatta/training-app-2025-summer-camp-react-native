@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/login";
 import WhatsappStatus from "../screens/whatsappStatus/whatsappStatus";
 import Camera from "../screens/camera";
+import PracticeMedia from "../screens/practiceMedia";
 
 const AppStack = createNativeStackNavigator();
 
@@ -11,9 +12,10 @@ export default function RootNavigation() {
   return (
     <NavigationContainer>
       <AppStack.Navigator
-        initialRouteName="Login"
+        initialRouteName="PracticeMedia"
         screenOptions={{ headerShown: false }}
       >
+        <AppStack.Screen name="PracticeMedia" component={PracticeMedia} />
         <AppStack.Screen
           name="WhatsappStatus"
           component={WhatsappStatus}
