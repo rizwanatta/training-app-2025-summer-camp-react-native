@@ -5,6 +5,7 @@ import Login from "../screens/login";
 import WhatsappStatus from "../screens/whatsappStatus/whatsappStatus";
 import Camera from "../screens/camera";
 import PracticeMedia from "../screens/practiceMedia";
+import AboutYou from "../screens/aboutYou";
 
 const AppStack = createNativeStackNavigator();
 
@@ -12,9 +13,11 @@ export default function RootNavigation() {
   return (
     <NavigationContainer>
       <AppStack.Navigator
-        initialRouteName="PracticeMedia"
+        initialRouteName="AboutYou"
         screenOptions={{ headerShown: false }}
       >
+        <AppStack.Screen name="AboutYou" component={AboutYou} />
+
         <AppStack.Screen name="PracticeMedia" component={PracticeMedia} />
         <AppStack.Screen
           name="WhatsappStatus"

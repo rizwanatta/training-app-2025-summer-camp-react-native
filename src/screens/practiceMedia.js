@@ -1,6 +1,13 @@
-import { Button, StyleSheet, Image, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Image,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import { launchCameraAsync } from "expo-image-picker";
+import Icon from "@expo/vector-icons/MaterialIcons";
 
 export default function PracticeMedia() {
   const [image, setImage] = useState();
@@ -15,10 +22,19 @@ export default function PracticeMedia() {
     }
   }
 
+  function onCrossPressed() {
+    setImage(null);
+  }
+
   return (
     <View style={styles.container}>
-      <Button title="Camera" onPress={onCameraPress} />
-      <Image source={{ uri: image }} style={styles.image} />
+      <TouchableOpacity onPress={onCameraPress}>
+        <Image source={{ uri: image }} style={styles.image} />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={onCrossPressed} style={styles.imageCancelIcon}>
+        <Icon name="cancel" size={50} color="red" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -35,5 +51,12 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
+    borderRadius: 100,
+    borderWidth: 2,
+  },
+
+  imageCancelIcon: {
+    marginTop: -230,
+    marginRight: -160,
   },
 });
