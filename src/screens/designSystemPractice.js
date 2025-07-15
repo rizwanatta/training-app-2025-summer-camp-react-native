@@ -1,59 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { useColorScheme } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function DesignSystemPractice() {
-  const colorScheme = useColorScheme();
-  const styles = colorScheme === "dark" ? stylesDark : stylesLight;
-
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>Practice Design System</Text>
+    <View className="flex-1 items-center justify-center dark:bg-gray-900 bg-pink-900">
+      <TouchableOpacity className="bg-blue-500 dark:bg-red-300 rounded-full p-4 m-4">
+        <Text className="text-white font-bold">Design System Practice</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-const stylesLight = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    backgroundColor: "blue",
-    width: 200,
-    height: 50,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    color: "black",
-    fontSize: 20,
-    textAlign: "center",
-  },
-});
-
-const stylesDark = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "black",
-  },
-  button: {
-    backgroundColor: "red",
-    width: 200,
-    height: 50,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  text: {
-    color: "white",
-    fontSize: 20,
-    textAlign: "center",
-  },
-});
