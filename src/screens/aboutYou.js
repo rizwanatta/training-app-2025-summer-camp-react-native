@@ -1,5 +1,5 @@
 import { CameraView } from "expo-camera";
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { StyleSheet, TouchableOpacity, View, Image } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 import React, { useRef, useState } from "react";
 
@@ -7,6 +7,8 @@ export default function AboutYou() {
   const [cameraType, setCameraType] = useState("back");
   const [cameraFlipIcon, setCameraFlipIcon] = useState("cameraswitch");
   const [imageTaken, setImageTaken] = useState("");
+
+  const [images, setImages] = useState([]);
 
   const cameraRef = useRef();
 
@@ -21,10 +23,17 @@ export default function AboutYou() {
   }
 
   async function onCameraPressed() {
-    // checking if cameraRef is working with camera or not
-    if (cameraRef.current) {
-      const data = await cameraRef.current.takePictureAsync();
-      setImageTaken(data);
+    try {
+      // checking if cameraRef is working with camera or not
+      if (cameraRef.current) {
+        const data = await cameraRef.current.takePictureAsync();
+        setImageTaken(data);
+
+        setImages([...images, data]);
+        console.log(typeof images);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -45,8 +54,6 @@ export default function AboutYou() {
           </TouchableOpacity>
         </View>
       </CameraView>
-
-      <Image source={{ uri: imageTaken?.uri }} style={styles.image} />
     </View>
   );
 }
