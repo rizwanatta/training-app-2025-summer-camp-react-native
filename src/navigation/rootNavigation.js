@@ -14,7 +14,7 @@ export default function RootNavigation() {
   return (
     <NavigationContainer>
       <AppStack.Navigator
-        initialRouteName="designSystemPractice"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
         <AppStack.Screen

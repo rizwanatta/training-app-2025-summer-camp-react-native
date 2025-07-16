@@ -9,22 +9,28 @@ import {
   ImageBackground,
 } from "react-native";
 
+import { auth } from "../database/firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { navigate } = useNavigation();
 
-  function onLoginPress() {
-    navigate("WhatsappStatus", { email: email });
+  async function onLoginPress() {
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   return (
-    <ImageBackground
-      source={{
-        uri: "https://cdn.pixabay.com/photo/2024/02/17/15/59/plum-blossoms-8579641_1280.jpg",
-      }}
-      style={styles.container}
-    >
+    <ImageBackground source={{}} style={styles.container}>
       <Image style={styles.img} source={require("../../assets/icon.png")} />
       <TextInput
         placeholderTextColor={"white"}
@@ -37,6 +43,7 @@ export default function Login() {
         placeholder="Enter your Password"
         secureTextEntry={true}
         placeholderTextColor={"white"}
+        onChangeText={setPassword}
       />
 
       <View style={styles.buttonCon}>
@@ -64,7 +71,7 @@ const styles = StyleSheet.create({
 
   input: {
     width: "100%",
-    borderColor: "white",
+    borderColor: "black",
     borderWidth: 1,
     borderRadius: 100,
     padding: 20,
