@@ -7,6 +7,7 @@ import Animated, {
   withRepeat,
   withSequence,
 } from "react-native-reanimated";
+import { MotiView } from "moti";
 
 const ANGLE = 10;
 const TIME = 100;
@@ -57,6 +58,16 @@ export default function AnimationPractice() {
           }}
         />
       </Animated.View>
+
+      <MotiView
+        className="w-[200px] h-[200px] rounded-full bg-red-500"
+        from={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          type: "timing",
+          duration: 3500,
+        }}
+      />
 
       <Button onPress={handlePress} title="Click me" />
     </View>
