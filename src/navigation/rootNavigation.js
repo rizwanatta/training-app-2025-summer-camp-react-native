@@ -9,15 +9,23 @@ import AboutYou from "../screens/aboutYou";
 import DesignSystemPractice from "../screens/designSystemPractice";
 import LoadingPractice from "../screens/loadingPractice";
 import AnimationPractice from "../screens/animationPractice";
+import StoragePractice from "../screens/storagePractice";
+
 const AppStack = createNativeStackNavigator();
 
 export default function RootNavigation() {
   return (
     <NavigationContainer>
       <AppStack.Navigator
-        initialRouteName="AnimationPractice"
+        initialRouteName="StoragePractice"
         screenOptions={{ headerShown: false }}
       >
+        <AppStack.Screen
+          name="StoragePractice"
+          component={StoragePractice}
+          options={{ headerShown: false }}
+        />
+
         <AppStack.Screen
           name="AnimationPractice"
           component={AnimationPractice}
