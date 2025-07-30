@@ -1,19 +1,27 @@
 import { View, Text, TextInput, Button } from "react-native";
 import React, { useState, useEffect } from "react";
 import { saveData, getData } from "../managers/storageManager";
+import { hideLoading } from "../managers/loadingManager";
+import { useNavigation } from "@react-navigation/native";
 
 export default function StoragePractice() {
   const [name, setName] = useState();
+  const { replace } = useNavigation();
 
   useEffect(() => {
-    const userName = getData("USER_NAME");
-    if (userName) {
-      setName(userName);
-    }
+    alert("hi");
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      alert("by by ");
+    };
   }, []);
 
   function onSavePressed() {
+    replace("Login");
     saveData("USER_NAME", name);
+    hideLoading();
   }
 
   return (

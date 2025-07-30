@@ -1,11 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function saveData(key, value) {
-  AsyncStorage.setItem(key, value);
+async function saveData(key, value) {
+  await AsyncStorage.setItem(key, value);
 }
 
-function getData(key) {
-  return AsyncStorage.getItem(key);
+async function getData(key) {
+  return await AsyncStorage.getItem(key);
 }
 
 export { saveData, getData };

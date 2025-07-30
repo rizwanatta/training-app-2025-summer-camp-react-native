@@ -12,5 +12,9 @@ export default function App() {
     return null;
   }
 
-  return <RootNavigation />;
+  return (
+    <>
+      <RootNavigation />
+    </>
+  );
 }
